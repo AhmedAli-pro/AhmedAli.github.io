@@ -1,1 +1,124 @@
+<!--
+Simple GitHub Pages portfolio template (single file)
+Instructions:
+1) Edit the placeholders marked with ALL CAPS (YOUR_NAME, YOUR_BIO, etc.)
+2) Add project cards (copy the <article class="project"> block and update links)
+3) Add images into an `assets/` folder and reference them as `assets/your-image.png`
+4) Save this file as index.html in a repository named `yourusername.github.io` (for a user site)
+   OR save in any repo and enable GitHub Pages from Settings -> Pages -> branch: main / folder: / (root)
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YOUR_NAME — Data Analyst Portfolio</title>
+  <meta name="description" content="Portfolio of YOUR_NAME — Aspiring Data Analyst. Projects: SQL, Python, Power BI, Tableau." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#6ee7b7}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#071026 0%, #0b1220 100%);color:#e6eef6;line-height:1.45}
+    .wrap{max-width:920px;margin:40px auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center}
+    .avatar{width:88px;height:88px;border-radius:12px;background:linear-gradient(135deg,#21334a,#0b1220);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:28px}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:8px 0 0;color:var(--muted)}
+    nav{margin-left:auto}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:8px 12px;border-radius:8px;color:inherit;text-decoration:none;font-size:14px}
+
+    section{margin-top:28px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .card{background:rgba(255,255,255,0.03);padding:14px;border-radius:12px}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:13px;color:var(--muted)}
+
+    .projects .project{display:flex;flex-direction:column;gap:10px}
+    .project img{width:100%;height:140px;object-fit:cover;border-radius:8px;background:#081426}
+    .project h3{margin:0;font-size:16px}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+    .project .links{margin-top:auto;display:flex;gap:8px}
+    .link{font-size:13px;text-decoration:none;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02)}
+
+    footer{margin-top:36px;color:var(--muted);font-size:13px;text-align:center}
+
+    @media (max-width:520px){.wrap{margin:16px;padding:16px}.avatar{width:64px;height:64px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="avatar">YR</div>
+      <div>
+        <h1>YOUR NAME HERE</h1>
+        <p class="lead">Aspiring Data Analyst • SQL | Python | Tableau | Power BI</p>
+      </div>
+      <nav>
+        <a class="btn" href="resume.pdf" download>Download CV</a>
+      </nav>
+    </header>
+
+    <section class="about">
+      <div class="card">
+        <h2 style="margin-top:0;margin-bottom:6px">About</h2>
+        <p style="margin:0;color:var(--muted)">SHORT BIO / 1-2 lines describing what you do and what internships you're looking for. Example: "Data-focused master's student with experience cleaning and analyzing large datasets (Pandas, SQL). Seeking Data Analyst internship in Paris."</p>
+      </div>
+    </section>
+
+    <section class="skills">
+      <h2 style="margin:6px 0">Skills</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="skills">
+            <span class="skill">SQL</span>
+            <span class="skill">Python (Pandas)</span>
+            <span class="skill">Excel</span>
+            <span class="skill">Tableau</span>
+            <span class="skill">Power BI</span>
+            <span class="skill">Git</span>
+            <span class="skill">Statistics</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 8px 0">Contact</h3>
+          <p style="margin:0 0 8px 0;color:var(--muted)">Email: <a href="mailto:youremail@example.com">youremail@example.com</a><br>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">yourprofile</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects">
+      <h2 style="margin:12px 0">Projects</h2>
+      <div class="grid">
+        <!-- Repeat this block for each project -->
+        <article class="card project">
+          <img src="assets/project1.png" alt="Project screenshot (replace with your image)">
+          <h3>Project Title — Sales Analysis</h3>
+          <p>Short description: Used SQL and Python to analyze 500k rows from retail transactions and built an interactive Power BI dashboard showing revenue drivers.</p>
+          <div class="links">
+            <a class="link" href="https://github.com/yourusername/project-1" target="_blank">GitHub</a>
+            <a class="link" href="#" target="_blank">Live</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <img src="assets/project2.png" alt="">
+          <h3>Project Title — Customer Churn</h3>
+          <p>Short description: Built churn prediction with feature engineering, evaluated models, and summarized business recommendations.</p>
+          <div class="links">
+            <a class="link" href="https://github.com/yourusername/project-2" target="_blank">GitHub</a>
+            <a class="link" href="#" target="_blank">Live</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <footer>
+      Built with ❤️ • Edit this file to add your projects and resume
+    </footer>
+  </div>
+</body>
+</html>
 
