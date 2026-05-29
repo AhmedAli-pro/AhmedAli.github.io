@@ -1,18 +1,554 @@
-<h1>Hi, I'm Ahmed Ali 👋</h1>
-<p>A passionate Data Science and Front-End Developer based in France 🇫🇷</p>
-<p>Currently exploring <b>Big Data, Machine Learning, and NLP</b> applications in Finance.</p>
-<a href="#projects" class="btn">View My Work</a>
-<a href="Ahmed_Ali_CV.pdf" class="btn-secondary">Download CV</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ahmed Ali — AI Engineer & Data Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0d1b2a; --navy-mid: #1a2e45; --gold: #c9a84c; --gold-light: #e2c27a;
+    --white: #f8f6f1; --offwhite: #edeae2; --text-dark: #0d1b2a;
+    --text-muted: #5a6a7a; --text-light: #8a9aaa; --border: rgba(201,168,76,0.2);
+    --section-bg: #f3f0e8;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text-dark); font-size: 16px; line-height: 1.7; }
 
-<h2>About Me</h2>
-<p>
-I'm a Master's student in Big Data & AI at CY Tech, with a strong background in 
-software development and data analysis. I specialize in <b>Python, PySpark, 
-Machine Learning, NLP, and Data Visualization</b>. My goal is to leverage data-driven 
-solutions to create meaningful business impact.
-</p>
-<ul>
-  <li>🌍 Based in: France</li>
-  <li>🎓 Education: M.Sc. in Big Data & AI - CY Tech</li>
-  <li>💡 Interests: AI, FinTech, Cloud Data Engineering</li>
-</ul>
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,27,42,0.97); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; height: 64px; border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .nav-brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.25rem; text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(248,246,241,0.7); text-decoration: none; font-size: 0.875rem; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+
+  .hero { min-height: 100vh; background: var(--navy); display: flex; align-items: center; position: relative; overflow: hidden; padding: 6rem 3rem 4rem; }
+  .hero::before { content: ''; position: absolute; top: -10%; right: -5%; width: 500px; height: 500px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.08); }
+  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); color: var(--white); line-height: 1.1; margin-bottom: 1rem; }
+  .hero-name span { color: var(--gold); }
+  .hero-title { font-size: 1.05rem; color: rgba(248,246,241,0.6); font-weight: 300; margin-bottom: 2rem; line-height: 1.6; }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+  .badge { font-size: 0.75rem; padding: 5px 14px; border: 1px solid rgba(201,168,76,0.4); color: var(--gold-light); border-radius: 2px; letter-spacing: 0.04em; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { padding: 12px 28px; background: var(--gold); color: var(--navy); font-weight: 500; font-size: 0.875rem; border: none; cursor: pointer; text-decoration: none; letter-spacing: 0.04em; transition: background 0.2s; display: inline-block; }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline { padding: 12px 28px; border: 1px solid rgba(201,168,76,0.5); color: var(--gold-light); font-size: 0.875rem; text-decoration: none; letter-spacing: 0.04em; transition: all 0.2s; display: inline-block; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .stat-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.12); padding: 1.5rem; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); display: block; line-height: 1; margin-bottom: 0.4rem; }
+  .stat-label { font-size: 0.8rem; color: rgba(248,246,241,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  section { padding: 5rem 3rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-header { display: flex; align-items: flex-end; gap: 1.5rem; margin-bottom: 3.5rem; }
+  .section-label { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--text-dark); line-height: 1.15; }
+  .section-line { flex: 1; height: 1px; background: var(--border); margin-bottom: 0.5rem; }
+
+  #about { background: var(--navy); }
+  #about .section-title { color: var(--white); }
+  #about .section-line { background: rgba(201,168,76,0.15); }
+  .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 4rem; align-items: start; }
+  .about-text { color: rgba(248,246,241,0.75); font-size: 1.05rem; line-height: 1.85; }
+  .about-text p + p { margin-top: 1.2rem; }
+  .about-text strong { color: var(--gold-light); font-weight: 500; }
+  .info-row { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.9rem 0; border-bottom: 1px solid rgba(201,168,76,0.1); }
+  .info-key { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(248,246,241,0.35); min-width: 80px; padding-top: 2px; }
+  .info-val { font-size: 0.9rem; color: rgba(248,246,241,0.8); }
+  .info-val a { color: var(--gold-light); text-decoration: none; }
+
+  #projects { background: var(--section-bg); }
+  .tab-bar { display: flex; margin-bottom: 3rem; border-bottom: 2px solid var(--border); }
+  .tab-btn { padding: 0.75rem 1.75rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -2px; cursor: pointer; color: var(--text-muted); transition: all 0.2s; }
+  .tab-btn.active { color: var(--navy); border-bottom-color: var(--gold); font-weight: 500; }
+  .tab-btn:hover:not(.active) { color: var(--text-dark); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .project-card { background: var(--white); border: 1px solid var(--border); padding: 2rem; position: relative; transition: border-color 0.2s, transform 0.2s; }
+  .project-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .project-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); font-weight: 500; margin-bottom: 0.75rem; }
+  .project-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 0.75rem; line-height: 1.3; }
+  .project-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .stack-pill { font-size: 0.72rem; padding: 3px 10px; background: var(--offwhite); color: var(--text-muted); border-radius: 2px; border: 1px solid rgba(13,27,42,0.08); }
+  .project-metrics { display: flex; gap: 1.5rem; margin-bottom: 1.25rem; }
+  .metric { text-align: center; }
+  .metric-num { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); display: block; }
+  .metric-label { font-size: 0.7rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.06em; }
+  .featured-card { grid-column: 1 / -1; display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+  .featured-card .project-title { font-size: 1.5rem; }
+  .featured-badge { position: absolute; top: 1rem; right: 1rem; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; background: var(--gold); color: var(--navy); font-weight: 500; }
+
+  #skills { background: var(--white); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+  .skill-group { border-left: 2px solid var(--gold); padding-left: 1.5rem; }
+  .skill-group-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); font-weight: 500; margin-bottom: 1rem; }
+  .skill-item { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid rgba(13,27,42,0.06); }
+  .skill-name { font-size: 0.9rem; color: var(--text-dark); }
+  .skill-bar-wrap { width: 80px; height: 3px; background: var(--offwhite); border-radius: 2px; overflow: hidden; }
+  .skill-bar { height: 100%; background: var(--gold); border-radius: 2px; }
+
+  #experience { background: var(--section-bg); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--border); }
+  .timeline-item { position: relative; padding-bottom: 3rem; }
+  .timeline-item::before { content: ''; position: absolute; left: -2.35rem; top: 0.4rem; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); border: 2px solid var(--white); }
+  .timeline-date { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .timeline-role { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 0.2rem; }
+  .timeline-org { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem; }
+  .timeline-bullets { list-style: none; }
+  .timeline-bullets li { font-size: 0.9rem; color: var(--text-muted); padding: 0.3rem 0 0.3rem 1.2rem; position: relative; line-height: 1.6; }
+  .timeline-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; }
+
+  #cvs { background: var(--navy); }
+  #cvs .section-title { color: var(--white); }
+  #cvs .section-line { background: rgba(201,168,76,0.15); }
+  .cv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .cv-card { border: 1px solid rgba(201,168,76,0.2); padding: 2rem; transition: border-color 0.2s; }
+  .cv-card:hover { border-color: var(--gold); }
+  .cv-icon { width: 44px; height: 44px; border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 1.2rem; color: var(--gold); }
+  .cv-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 0.5rem; }
+  .cv-desc { font-size: 0.85rem; color: rgba(248,246,241,0.5); margin-bottom: 1.5rem; line-height: 1.6; }
+
+  #contact { background: var(--section-bg); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-intro { font-size: 1.05rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 2rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-dark); font-size: 0.9rem; transition: color 0.2s; }
+  .contact-link:hover { color: var(--gold); }
+  .contact-link-icon { width: 36px; height: 36px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: var(--gold); flex-shrink: 0; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); }
+  .form-input, .form-textarea { padding: 0.75rem 1rem; border: 1px solid var(--border); background: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--text-dark); outline: none; transition: border-color 0.2s; border-radius: 0; }
+  .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+
+  footer { background: var(--navy); padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(201,168,76,0.1); }
+  .footer-brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; }
+  .footer-copy { font-size: 0.8rem; color: rgba(248,246,241,0.3); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 6rem 1.5rem 4rem; }
+    .hero-inner, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .featured-card { grid-template-columns: 1fr; }
+    .cv-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">Ahmed Ali</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#cvs">CVs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">AI Engineer &amp; Data Scientist — Paris, France</p>
+      <h1 class="hero-name">Ahmed<br/><span>Ali</span></h1>
+      <p class="hero-title">Building production-grade LLM &amp; RAG systems.<br/>M2 Big Data &amp; Business Analytics · CY Tech Paris.<br/>Seeking a PhD &amp; AI/ML internship.</p>
+      <div class="hero-badges">
+        <span class="badge">LangChain</span><span class="badge">FAISS</span><span class="badge">LLaMA</span>
+        <span class="badge">FinBERT</span><span class="badge">PySpark</span><span class="badge">FastAPI</span>
+        <span class="badge">PyTorch</span><span class="badge">Hugging Face</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#cvs" class="btn-outline">Download CV</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card"><span class="stat-num">3K+</span><span class="stat-label">Documents Indexed</span></div>
+      <div class="stat-card"><span class="stat-num">&lt;50ms</span><span class="stat-label">RAG Retrieval</span></div>
+      <div class="stat-card"><span class="stat-num">1.6M+</span><span class="stat-label">Tweets Processed</span></div>
+      <div class="stat-card"><span class="stat-num">90%+</span><span class="stat-label">CNN Accuracy</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">01</span>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm an <strong>AI Engineer and Data Scientist</strong> completing my Master's in Big Data &amp; Business Analytics at <strong>CY Tech Paris</strong>. My work sits at the intersection of large language models, NLP, and scalable data engineering.</p>
+        <p>During my internship at <strong>Technocolabs</strong>, I built a production-grade RAG system ingesting 3,000+ enterprise documents, achieving sub-50ms retrieval with FAISS and 100% pass rate on edge-case test queries. My ongoing <strong>Master's thesis</strong> applies FinBERT and LLaMA to financial sentiment analysis.</p>
+        <p>Before pivoting fully to AI, I worked as a <strong>Frontend Web Developer</strong> — giving me an edge to own the full stack from model inference to deployed UI. I'm targeting a <strong>PhD position</strong> and a 4–6 month AI/ML internship.</p>
+      </div>
+      <div>
+        <div class="info-row"><span class="info-key">Location</span><span class="info-val">Paris, France</span></div>
+        <div class="info-row"><span class="info-key">Email</span><span class="info-val"><a href="mailto:ahmedpk12r@gmail.com">ahmedpk12r@gmail.com</a></span></div>
+        <div class="info-row"><span class="info-key">GitHub</span><span class="info-val"><a href="https://github.com/AhmedAli-pro" target="_blank">AhmedAli-pro</a></span></div>
+        <div class="info-row"><span class="info-key">LinkedIn</span><span class="info-val"><a href="https://www.linkedin.com/in/ahmed-ali-a31826231/" target="_blank">ahmed-ali-a31826231</a></span></div>
+        <div class="info-row"><span class="info-key">Languages</span><span class="info-val">English · French · Urdu</span></div>
+        <div class="info-row"><span class="info-key">Status</span><span class="info-val" style="color:var(--gold-light);">Open to internship &amp; PhD</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">02</span>
+      <h2 class="section-title">Projects</h2>
+      <div class="section-line" style="background:rgba(201,168,76,0.3)"></div>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('all',this)">All Projects</button>
+      <button class="tab-btn" onclick="switchTab('ai',this)">AI Engineering</button>
+      <button class="tab-btn" onclick="switchTab('ds',this)">Data Science</button>
+      <button class="tab-btn" onclick="switchTab('da',this)">Data Analytics</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-all">
+      <div class="projects-grid">
+        <div class="project-card featured-card">
+          <span class="featured-badge">Featured</span>
+          <div>
+            <p class="project-tag">AI Engineering · RAG · LLM</p>
+            <h3 class="project-title">Enterprise RAG System — Technocolabs</h3>
+            <p class="project-desc">End-to-end Retrieval-Augmented Generation system for HR &amp; legal document querying. Ingested 3,000+ documents into 4,544 metadata-rich FAISS chunks. Groq LLM with structured prompt engineering eliminated hallucinations. FastAPI + Streamlit UI, containerised with Docker.</p>
+            <div class="project-stack">
+              <span class="stack-pill">LangChain</span><span class="stack-pill">FAISS</span><span class="stack-pill">FastAPI</span>
+              <span class="stack-pill">Streamlit</span><span class="stack-pill">Groq API</span><span class="stack-pill">LLaMA-3.1</span>
+              <span class="stack-pill">Docker</span><span class="stack-pill">Sentence Transformers</span>
+            </div>
+          </div>
+          <div>
+            <div class="project-metrics">
+              <div class="metric"><span class="metric-num">3K+</span><span class="metric-label">Docs</span></div>
+              <div class="metric"><span class="metric-num">&lt;50ms</span><span class="metric-label">Retrieval</span></div>
+              <div class="metric"><span class="metric-num">100%</span><span class="metric-label">Test pass</span></div>
+            </div>
+            <a href="https://github.com/AhmedAli-pro" target="_blank" class="btn-primary" style="font-size:0.8rem;padding:10px 20px;">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-tag">NLP · LLM · Finance</p>
+          <h3 class="project-title">Financial Sentiment Analysis — Master's Thesis</h3>
+          <p class="project-desc">NLP pipeline using FinBERT and LLaMA for financial text classification. Prompt engineering to reduce hallucinations. Automated benchmarking of transformer architectures on precision, recall, F1-score, and latency.</p>
+          <div class="project-stack"><span class="stack-pill">FinBERT</span><span class="stack-pill">LLaMA</span><span class="stack-pill">PyTorch</span><span class="stack-pill">Hugging Face</span><span class="stack-pill">scikit-learn</span></div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-tag">Big Data · NLP · Streaming</p>
+          <h3 class="project-title">Real-Time Sentiment Analysis Pipeline</h3>
+          <p class="project-desc">Scalable NLP pipeline for tweet sentiment on 1.6M+ streaming records. Spark MLlib classifiers at ~85% accuracy. Live dashboard for monitoring sentiment trends integrated with MongoDB.</p>
+          <div class="project-stack"><span class="stack-pill">PySpark</span><span class="stack-pill">Databricks</span><span class="stack-pill">MongoDB</span><span class="stack-pill">Spark MLlib</span></div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-tag">ML · Forecasting · Finance &amp; Climate</p>
+          <h3 class="project-title">Time Series Forecasting</h3>
+          <p class="project-desc">Benchmarked ARIMA, SARIMA, ETS, LSTM, and XGBoost on financial and climate datasets. Analysed accuracy vs interpretability vs compute trade-offs. Combined statistical and deep learning models for improved accuracy.</p>
+          <div class="project-stack"><span class="stack-pill">Python</span><span class="stack-pill">LSTM</span><span class="stack-pill">XGBoost</span><span class="stack-pill">statsmodels</span><span class="stack-pill">pandas</span></div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-tag">Deep Learning · Computer Vision</p>
+          <h3 class="project-title">Brain Tumor Classification — CNN</h3>
+          <p class="project-desc">CNN trained on MRI scans to classify 4 tumour types. 90%+ accuracy through image preprocessing and data augmentation. Computer vision techniques applicable to unstructured medical data.</p>
+          <div class="project-stack"><span class="stack-pill">TensorFlow</span><span class="stack-pill">CNN</span><span class="stack-pill">Python</span><span class="stack-pill">OpenCV</span></div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-tag">Data Analytics · Power BI</p>
+          <h3 class="project-title">Mental Health &amp; Technology Usage Analysis</h3>
+          <p class="project-desc">Analysed relationships between screen time, sleep patterns, and mental health. Interactive Power BI dashboards with clustering and segmentation to identify user behaviour patterns and risk groups.</p>
+          <div class="project-stack"><span class="stack-pill">Power BI</span><span class="stack-pill">Python</span><span class="stack-pill">Clustering</span></div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-tag">Data Analytics · Tableau</p>
+          <h3 class="project-title">Retail Analytics &amp; Business Performance Dashboard</h3>
+          <p class="project-desc">Integrated datasets across customers, products, stores, and transactions. Interactive Tableau dashboards for sales trends, customer segmentation, and KPI monitoring. Identified high-value customers and revenue drivers.</p>
+          <div class="project-stack"><span class="stack-pill">Tableau</span><span class="stack-pill">SQL</span><span class="stack-pill">Excel</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-ai">
+      <div class="projects-grid">
+        <div class="project-card featured-card">
+          <span class="featured-badge">Featured</span>
+          <div>
+            <p class="project-tag">AI Engineering · RAG · LLM</p>
+            <h3 class="project-title">Enterprise RAG System — Technocolabs</h3>
+            <p class="project-desc">End-to-end RAG for HR &amp; legal document querying. 3,000+ documents, FAISS indexing, Groq LLM, FastAPI + Streamlit, Docker.</p>
+            <div class="project-stack"><span class="stack-pill">LangChain</span><span class="stack-pill">FAISS</span><span class="stack-pill">FastAPI</span><span class="stack-pill">LLaMA-3.1</span><span class="stack-pill">Docker</span></div>
+          </div>
+          <div>
+            <div class="project-metrics">
+              <div class="metric"><span class="metric-num">3K+</span><span class="metric-label">Docs</span></div>
+              <div class="metric"><span class="metric-num">&lt;50ms</span><span class="metric-label">Retrieval</span></div>
+              <div class="metric"><span class="metric-num">100%</span><span class="metric-label">Test pass</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <p class="project-tag">NLP · LLM · Finance</p>
+          <h3 class="project-title">Financial Sentiment Analysis — Thesis</h3>
+          <p class="project-desc">FinBERT and LLaMA pipeline for financial text classification with prompt engineering and automated evaluation benchmarks.</p>
+          <div class="project-stack"><span class="stack-pill">FinBERT</span><span class="stack-pill">LLaMA</span><span class="stack-pill">PyTorch</span><span class="stack-pill">Hugging Face</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-ds">
+      <div class="projects-grid">
+        <div class="project-card">
+          <p class="project-tag">NLP · LLM · Finance</p>
+          <h3 class="project-title">Financial Sentiment Analysis — Thesis</h3>
+          <p class="project-desc">Benchmarking FinBERT and LLaMA on financial text classification. Precision, recall, F1-score, and latency evaluation pipeline.</p>
+          <div class="project-stack"><span class="stack-pill">FinBERT</span><span class="stack-pill">LLaMA</span><span class="stack-pill">PyTorch</span><span class="stack-pill">scikit-learn</span></div>
+        </div>
+        <div class="project-card">
+          <p class="project-tag">Big Data · NLP</p>
+          <h3 class="project-title">Real-Time Sentiment Pipeline</h3>
+          <p class="project-desc">1.6M+ tweet sentiment classification via PySpark and Databricks. ~85% accuracy with Spark MLlib classifiers.</p>
+          <div class="project-stack"><span class="stack-pill">PySpark</span><span class="stack-pill">Databricks</span><span class="stack-pill">MongoDB</span></div>
+        </div>
+        <div class="project-card">
+          <p class="project-tag">ML · Forecasting</p>
+          <h3 class="project-title">Time Series Forecasting</h3>
+          <p class="project-desc">ARIMA, LSTM, XGBoost benchmarked on financial and climate data. Combined statistical and deep learning for best accuracy.</p>
+          <div class="project-stack"><span class="stack-pill">LSTM</span><span class="stack-pill">XGBoost</span><span class="stack-pill">statsmodels</span></div>
+        </div>
+        <div class="project-card">
+          <p class="project-tag">Deep Learning · Computer Vision</p>
+          <h3 class="project-title">Brain Tumor Classification — CNN</h3>
+          <p class="project-desc">CNN on MRI scans for 4-class tumour classification. 90%+ accuracy via preprocessing and augmentation.</p>
+          <div class="project-stack"><span class="stack-pill">TensorFlow</span><span class="stack-pill">CNN</span><span class="stack-pill">Python</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-da">
+      <div class="projects-grid">
+        <div class="project-card">
+          <p class="project-tag">Data Analytics · Power BI</p>
+          <h3 class="project-title">Mental Health &amp; Technology Usage</h3>
+          <p class="project-desc">Power BI dashboards exploring screen time and mental health correlations. Clustering and segmentation to identify risk groups.</p>
+          <div class="project-stack"><span class="stack-pill">Power BI</span><span class="stack-pill">Python</span><span class="stack-pill">Clustering</span></div>
+        </div>
+        <div class="project-card">
+          <p class="project-tag">Data Analytics · Tableau</p>
+          <h3 class="project-title">Retail Analytics Dashboard</h3>
+          <p class="project-desc">Tableau dashboards for sales trends, customer segmentation, and store KPIs across products, customers, and transactions.</p>
+          <div class="project-stack"><span class="stack-pill">Tableau</span><span class="stack-pill">SQL</span><span class="stack-pill">Excel</span></div>
+        </div>
+        <div class="project-card">
+          <p class="project-tag">Streaming · Dashboard</p>
+          <h3 class="project-title">Real-Time Sentiment Dashboard</h3>
+          <p class="project-desc">Live dashboard tracking sentiment trends across 1.6M+ tweets. MongoDB-integrated for real-time data updates and visualisation.</p>
+          <div class="project-stack"><span class="stack-pill">PySpark</span><span class="stack-pill">MongoDB</span><span class="stack-pill">Databricks</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">03</span>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="section-line" style="background:rgba(201,168,76,0.3)"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <p class="skill-group-title">LLMs &amp; RAG</p>
+        <div class="skill-item"><span class="skill-name">LangChain</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">FAISS</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Hugging Face</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">FinBERT / LLaMA</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Prompt Engineering</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:87%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">ML &amp; Deep Learning</p>
+        <div class="skill-item"><span class="skill-name">PyTorch</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">TensorFlow</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">scikit-learn</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">XGBoost / LSTM</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">NLP / Text Classification</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:86%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Big Data &amp; Engineering</p>
+        <div class="skill-item"><span class="skill-name">PySpark</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:83%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Databricks</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">FastAPI</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Docker</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">MongoDB / SQL</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <p class="skill-group-title">Analytics &amp; BI</p>
+        <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Tableau</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Python / pandas</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:93%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">R / Scala</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Excel (Advanced)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">04</span>
+      <h2 class="section-title">Experience &amp; Education</h2>
+      <div class="section-line" style="background:rgba(201,168,76,0.3)"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <p class="timeline-date">Mar 2026 – May 2026</p>
+        <h3 class="timeline-role">AI Engineer Intern — RAG &amp; LLM Systems</h3>
+        <p class="timeline-org">Technocolabs Softwares</p>
+        <ul class="timeline-bullets">
+          <li>Built end-to-end RAG system ingesting 3,000+ enterprise HR &amp; legal documents into 4,544 FAISS chunks</li>
+          <li>Sub-50ms semantic retrieval with all-MiniLM-L6-v2; Groq LLM with structured prompt engineering eliminated hallucinations</li>
+          <li>FastAPI backend + Streamlit UI; 100% pass rate on 17 edge-case test queries; containerised with Docker</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-date">Apr 2025 – Sep 2026</p>
+        <h3 class="timeline-role">Master's Thesis — LLM for Financial Sentiment Analysis</h3>
+        <p class="timeline-org">CY Tech Paris · Supervised by Prof. H. Senoussi</p>
+        <ul class="timeline-bullets">
+          <li>Designing NLP pipeline for financial text classification using FinBERT and LLaMA</li>
+          <li>Building automated evaluation pipeline comparing transformer architectures on F1, precision, recall, and latency</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-date">Jul 2023 – Aug 2024</p>
+        <h3 class="timeline-role">Frontend Web Developer</h3>
+        <p class="timeline-org">92 Devs, Pakistan</p>
+        <ul class="timeline-bullets">
+          <li>Developed responsive websites from Figma designs and integrated REST APIs</li>
+          <li>Collaborated with cross-functional teams to deliver production-quality projects</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-date">Sep 2024 – Sep 2026</p>
+        <h3 class="timeline-role">M2 — Big Data &amp; Business Analytics</h3>
+        <p class="timeline-org">CY Cergy Paris Université (CY Tech), France</p>
+        <ul class="timeline-bullets">
+          <li>Focus: LLMs, NLP, Deep Learning, Data Mining, Big Data Analytics, Machine Learning</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-date">Sep 2019 – Jul 2023</p>
+        <h3 class="timeline-role">B.Sc. — Software Engineering</h3>
+        <p class="timeline-org">Comsats University Islamabad, Pakistan</p>
+        <ul class="timeline-bullets">
+          <li>Focus: AI, Data Science, Algorithms &amp; Data Structures, Database Systems</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cvs">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">05</span>
+      <h2 class="section-title">Download CV</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="cv-grid">
+      <div class="cv-card">
+        <div class="cv-icon">⚙</div>
+        <h3 class="cv-title">AI Engineer</h3>
+        <p class="cv-desc">LLM &amp; RAG systems, FastAPI, LangChain, FAISS, Docker. For production-grade AI engineering roles.</p>
+        <a href="Ahmed_Ali_CV_GenAI.pdf" download class="btn-primary" style="font-size:0.8rem;padding:10px 20px;">Download PDF →</a>
+      </div>
+      <div class="cv-card">
+        <div class="cv-icon">◈</div>
+        <h3 class="cv-title">Data Scientist</h3>
+        <p class="cv-desc">NLP, deep learning, time series, PySpark. Targeting research and data science positions in AI for finance.</p>
+        <a href="Ahmed_Ali_DS_CV__1_.pdf" download class="btn-primary" style="font-size:0.8rem;padding:10px 20px;">Download PDF →</a>
+      </div>
+      <div class="cv-card">
+        <div class="cv-icon">▣</div>
+        <h3 class="cv-title">Data Analyst</h3>
+        <p class="cv-desc">Power BI, Tableau, SQL, ETL pipelines. For analytics and business intelligence roles.</p>
+        <a href="Ahmed_Ali_CV_DA1.pdf" download class="btn-primary" style="font-size:0.8rem;padding:10px 20px;">Download PDF →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">06</span>
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="section-line" style="background:rgba(201,168,76,0.3)"></div>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">I'm actively looking for a <strong style="color:var(--text-dark)">4–6 month AI/ML internship</strong> and exploring <strong style="color:var(--text-dark)">PhD opportunities</strong> in NLP, LLMs, and applied AI. If you're working on something interesting, I'd love to hear from you.</p>
+        <div class="contact-links">
+          <a href="mailto:ahmedpk12r@gmail.com" class="contact-link"><div class="contact-link-icon">✉</div>ahmedpk12r@gmail.com</a>
+          <a href="https://github.com/AhmedAli-pro" target="_blank" class="contact-link"><div class="contact-link-icon">⌥</div>github.com/AhmedAli-pro</a>
+          <a href="https://www.linkedin.com/in/ahmed-ali-a31826231/" target="_blank" class="contact-link"><div class="contact-link-icon">in</div>LinkedIn Profile</a>
+          <a href="tel:+33751512769" class="contact-link"><div class="contact-link-icon">☎</div>+33 751 512 769</a>
+        </div>
+      </div>
+      <div>
+        <div class="contact-form">
+          <div class="form-group"><label class="form-label">Name</label><input type="text" class="form-input" placeholder="Your name" /></div>
+          <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="your@email.com" /></div>
+          <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Tell me about your project or opportunity..."></textarea></div>
+          <a href="mailto:ahmedpk12r@gmail.com" class="btn-primary" style="text-align:center;">Send via Email →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-brand">Ahmed Ali</span>
+  <span class="footer-copy">© 2026 · Paris, France · AI Engineer &amp; Data Scientist</span>
+</footer>
+
+<script>
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+}
+</script>
+</body>
+</html>
